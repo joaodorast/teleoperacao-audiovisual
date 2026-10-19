@@ -1,0 +1,9 @@
+# Computador conectado ao robô
+fastapi>=0.115,<1
+uvicorn[standard]>=0.30
+aiortc>=1.9,<2          # WebRTC; o 1.15 foi o validado
+av>=12                  # codecs (VP8/H.264, Opus) usados pelo aiortc
+opencv-python-headless>=4.9
+numpy>=1.26
+sounddevice>=0.4.6      # requer a biblioteca PortAudio (Linux: apt install libportaudio2)
+pydantic>=2.6
