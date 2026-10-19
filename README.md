@@ -123,7 +123,9 @@ mesma rotina de captura a 5 FPS e reiniciado ao terminar.
 
 ## Interface do operador
 
-![Sessão ativa](docs/capturas/03-sessao-ativa.png)
+| Tema escuro (padrão) | Tema claro |
+|---|---|
+| ![Sessão ativa no tema escuro](docs/capturas/escuro/03-sessao-ativa.png) | ![Sessão ativa no tema claro](docs/capturas/claro/03-sessao-ativa.png) |
 
 - **Visual grafite com detalhes em rosa**: a base é cinza; o rosa forte marca apenas o que
   merece atenção (indicador ao vivo, microfone aberto, foco do teclado, gráfico de latência).
@@ -144,6 +146,24 @@ mesma rotina de captura a 5 FPS e reiniciado ao terminar.
 | `P` | Salvar o quadro atual como imagem |
 | `T` | Alternar tema claro/escuro |
 | `?` | Mostrar a lista de atalhos |
+
+### Galeria: todas as telas nos dois temas
+
+As capturas foram feitas no Chromium contra o backend real, com o mesmo roteiro nos
+dois temas, e ficam em [`docs/capturas/escuro/`](docs/capturas/escuro/) e
+[`docs/capturas/claro/`](docs/capturas/claro/).
+
+| Tela | Tema escuro | Tema claro |
+|---|---|---|
+| Login com senha inválida | ![](docs/capturas/escuro/01-login-erro.png) | ![](docs/capturas/claro/01-login-erro.png) |
+| Pronto para iniciar | ![](docs/capturas/escuro/02-pronto.png) | ![](docs/capturas/claro/02-pronto.png) |
+| Sessão ativa | ![](docs/capturas/escuro/03-sessao-ativa.png) | ![](docs/capturas/claro/03-sessao-ativa.png) |
+| Reconectando a mídia | ![](docs/capturas/escuro/04-reconectando.png) | ![](docs/capturas/claro/04-reconectando.png) |
+| Sessão sem operador | ![](docs/capturas/escuro/05-sessao-sem-operador.png) | ![](docs/capturas/claro/05-sessao-sem-operador.png) |
+| Confirmar encerramento | ![](docs/capturas/escuro/06-confirmar-encerramento.png) | ![](docs/capturas/claro/06-confirmar-encerramento.png) |
+| Sessão encerrada | ![](docs/capturas/escuro/07-sessao-encerrada.png) | ![](docs/capturas/claro/07-sessao-encerrada.png) |
+| Atalhos de teclado | ![](docs/capturas/escuro/08-atalhos.png) | ![](docs/capturas/claro/08-atalhos.png) |
+| Celular (390 px) | ![](docs/capturas/escuro/09-celular.png) | ![](docs/capturas/claro/09-celular.png) |
 
 ## Métricas exibidas (todas medidas, nenhuma simulada)
 
