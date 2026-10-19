@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark light">
+  <title>Teleoperação Audiovisual</title>
+  <link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="/static/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/static/fonts/ibm-plex-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="/static/js/theme.js"></script>
+  <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body data-auth="unknown">
+  <svg width="0" height="0" class="sprite" aria-hidden="true">
+    <!-- Ícones no estilo Lucide (traço 1,75 px, cantos arredondados) -->
+    <symbol id="i-video" viewBox="0 0 24 24"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.4L16 11"/><rect x="2" y="6" width="14" height="12" rx="2"/></symbol>
+    <symbol id="i-video-off" viewBox="0 0 24 24"><path d="M10.7 6H14a2 2 0 0 1 2 2v3.3l1 1L22 7v10"/><path d="M16 16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2"/><path d="m2 2 20 20"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><path d="M12 18v4"/></symbol>
+    <symbol id="i-mic-off" viewBox="0 0 24 24"><path d="M15 9.3V5a3 3 0 0 0-5.7-1.3"/><path d="M19 10v1a7 7 0 0 1-.9 3.4"/><path d="M15 14.1A3 3 0 0 1 9 12V9"/><path d="M5 10v1a7 7 0 0 0 11.6 5.3"/><path d="M12 18v4"/><path d="m2 2 20 20"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 4.7a.7.7 0 0 0-1.2-.5L6.4 7.6A2 2 0 0 1 5 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2a2 2 0 0 1 1.4.6l3.4 3.4a.7.7 0 0 0 1.2-.5z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.4 18.4a9 9 0 0 0 0-12.8"/></symbol>
+    <symbol id="i-volume-x" viewBox="0 0 24 24"><path d="M11 4.7a.7.7 0 0 0-1.2-.5L6.4 7.6A2 2 0 0 1 5 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2a2 2 0 0 1 1.4.6l3.4 3.4a.7.7 0 0 0 1.2-.5z"/><path d="m22 9-6 6"/><path d="m16 9 6 6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15a1 1 0 0 0 1.5.9l12-7.5a1 1 0 0 0 0-1.8l-12-7.5A1 1 0 0 0 7 4.5z"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2.5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.5 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.8 9.8 0 0 1 6.7 2.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.8 9.8 0 0 1-6.7-2.7L3 16"/><path d="M8 16H3v5"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></symbol>
+    <symbol id="i-speaker" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><path d="M12 6h.01"/></symbol>
+    <symbol id="i-unplug" viewBox="0 0 24 24"><path d="m19 5 3-3"/><path d="m2 22 3-3"/><path d="M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z"/><path d="M7.5 13.5 10 11"/><path d="M10.5 16.5 13 14"/><path d="m12 6 6 6 2.3-2.3a2.4 2.4 0 0 0 0-3.4l-2.6-2.6a2.4 2.4 0 0 0-3.4 0Z"/></symbol>
+    <symbol id="i-maximize" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></symbol>
+    <symbol id="i-minimize" viewBox="0 0 24 24"><path d="M8 3v3a2 2 0 0 1-2 2H3"/><path d="M21 8h-3a2 2 0 0 1-2-2V3"/><path d="M3 16h3a2 2 0 0 1 2 2v3"/><path d="M16 21v-3a2 2 0 0 1 2-2h3"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.9 4.9 1.4 1.4"/><path d="m17.7 17.7 1.4 1.4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.3 17.7-1.4 1.4"/><path d="m19.1 4.9-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-keyboard" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01"/><path d="M10 8h.01"/><path d="M14 8h.01"/><path d="M18 8h.01"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/><path d="M7 16h10"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.1 12.3a1 1 0 0 1 0-.6 10.8 10.8 0 0 1 19.8 0 1 1 0 0 1 0 .6 10.8 10.8 0 0 1-19.8 0"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M10.7 5.1A10.7 10.7 0 0 1 21.9 11.7a1 1 0 0 1 0 .6 10.8 10.8 0 0 1-1.4 2.5"/><path d="M14.1 14.2a3 3 0 0 1-4.2-4.2"/><path d="M17.5 17.5a10.8 10.8 0 0 1-15.4-5.2 1 1 0 0 1 0-.6 10.8 10.8 0 0 1 4.4-5.2"/><path d="m2 2 20 20"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol>
+    <symbol id="i-signal" viewBox="0 0 24 24"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 2v3"/><path d="M15 2v3"/><path d="M9 19v3"/><path d="M15 19v3"/><path d="M2 9h3"/><path d="M2 15h3"/><path d="M19 9h3"/><path d="M19 15h3"/></symbol>
+  </svg>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32"><rect x="7" y="10" width="18" height="13" rx="3.5"/><path d="M16 10V6.5"/><circle class="brand-eye" cx="12.5" cy="16.5" r="1.6"/><circle class="brand-eye" cx="19.5" cy="16.5" r="1.6"/></svg>
+      </span>
+      <div class="brand-text">
+        <span class="brand-name">Teleoperação <em>Audiovisual</em></span>
+        <span class="brand-sub">Projeto 2 · robô humanoide</span>
+      </div>
+    </div>
+    <div class="topbar-status" aria-live="polite">
+      <span class="pill" id="pill-connection" data-tone="neutral"><span class="dot"></span><span class="pill-text">Aguardando conexão</span></span>
+      <span class="pill" id="pill-session" data-tone="neutral"><span class="dot"></span><span class="pill-text">Sessão inativa</span></span>
+    </div>
+    <div class="topbar-tools">
+      <span class="user-chip" id="user-chip" hidden><svg class="ic"><use href="#i-user"/></svg><span id="user-name"></span></span>
+      <button class="icon-btn ghost" id="btn-shortcuts" type="button" title="Atalhos de teclado (?)" aria-label="Atalhos de teclado">
+        <svg class="ic"><use href="#i-keyboard"/></svg>
+      </button>
+      <button class="icon-btn ghost" id="btn-theme" type="button" title="Alternar tema claro/escuro" aria-label="Alternar tema claro/escuro">
+        <svg class="ic"><use href="#i-sun"/></svg>
+      </button>
+      <button class="icon-btn ghost" id="btn-logout" type="button" title="Sair" aria-label="Sair do sistema" hidden>
+        <svg class="ic"><use href="#i-logout"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="layout" id="main" inert>
+    <section class="stage-col" id="stage-col" aria-label="Vídeo e controles">
+      <div class="stage" id="stage" data-view="idle">
+        <video id="video" playsinline autoplay muted aria-label="Vídeo recebido do robô"></video>
+        <audio id="robot-audio" autoplay></audio>
+        <div class="stage-grid" aria-hidden="true"></div>
+
+        <div class="stage-overlay" id="stage-overlay" aria-live="polite">
+          <div class="overlay-card">
+            <span class="overlay-icon" id="overlay-icon"><svg class="ic"><use href="#i-video"/></svg></span>
+            <span class="spinner" aria-hidden="true"></span>
+            <p class="overlay-title" id="overlay-title">Nenhuma sessão ativa</p>
+            <p class="overlay-text" id="overlay-text">Inicie a sessão para receber o vídeo e o áudio do robô.</p>
+            <button class="btn btn-ghost overlay-action" id="overlay-action" type="button" hidden></button>
+          </div>
+        </div>
+
+        <div class="stage-hud" aria-hidden="false">
+          <div class="hud-group">
+            <span class="hud-chip hud-live" id="hud-live"><span class="rec"></span>Ao vivo</span>
+            <span class="hud-chip hud-timer" id="hud-timer">00:00:00</span>
+          </div>
+          <span class="hud-chip hud-fps" id="hud-fps" title="Taxa de captura configurada e medida no robô; taxa de quadros recebida e decodificada neste computador">
+            <span>Captura <b id="hud-cap">5 FPS</b></span>
+            <span class="hud-sep"></span>
+            <span>Recebido <b id="hud-recv">—</b></span>
+          </span>
+        </div>
+
+        <div class="stage-hud stage-hud-bottom">
+          <div class="hud-group">
+            <span class="hud-chip hud-lat" id="hud-lat" title="Latência de vídeo fim a fim"><span class="hud-lat-label">Latência</span><b id="hud-lat-val">—</b></span>
+            <span class="hud-chip hud-quality" id="hud-quality" data-q="none" title="Qualidade do link"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="hud-quality-text">—</span></span>
+          </div>
+          <div class="hud-group hud-tools">
+            <button class="hud-btn" id="btn-snapshot" type="button" title="Salvar quadro atual (P)" aria-label="Salvar o quadro atual como imagem">
+              <svg class="ic"><use href="#i-camera"/></svg>
+            </button>
+            <button class="hud-btn" id="btn-fullscreen" type="button" title="Tela cheia (F)" aria-label="Tela cheia">
+              <svg class="ic"><use href="#i-maximize"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dock" role="group" aria-label="Controles da sessão e do áudio">
+        <div class="dock-session">
+          <button class="btn btn-primary" id="btn-session" type="button" disabled>
+            <svg class="ic"><use href="#i-play"/></svg>
+            <span class="btn-label">Iniciar sessão</span>
+          </button>
+          <p class="dock-hint" id="session-hint">Conectando ao robô…</p>
+        </div>
+
+        <div class="dock-audio">
+          <div class="audio-ctl" id="ctl-robot">
+            <button class="icon-btn toggle" id="btn-robot-audio" type="button" aria-pressed="true" disabled
+                    aria-label="Silenciar o áudio do robô" title="Silenciar o áudio do robô">
+              <svg class="ic"><use href="#i-volume"/></svg>
+            </button>
+            <div class="audio-meta">
+              <span class="audio-name">Áudio do robô</span>
+              <span class="audio-state" id="robot-audio-state">Sem sessão</span>
+            </div>
+            <div class="meter" aria-hidden="true"><span id="meter-robot"></span></div>
+            <div class="vol">
+              <label class="sr-only" for="vol-robot">Volume do áudio do robô</label>
+              <input class="slider" type="range" id="vol-robot" min="0" max="100" value="80" disabled>
+              <output class="vol-value" id="vol-value" for="vol-robot">80%</output>
+            </div>
+          </div>
+
+          <div class="audio-ctl" id="ctl-mic">
+            <button class="icon-btn toggle" id="btn-mic" type="button" aria-pressed="false" disabled
+                    aria-label="Falar pelo alto-falante do robô" title="Falar pelo alto-falante do robô (M)">
+              <svg class="ic"><use href="#i-mic-off"/></svg>
+            </button>
+            <div class="audio-meta">
+              <span class="audio-name">Sua voz no robô <kbd>M</kbd></span>
+              <span class="audio-state" id="mic-state">Microfone desligado</span>
+            </div>
+            <div class="meter" aria-hidden="true"><span id="meter-mic"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice" id="notice" role="alert" hidden>
+        <svg class="ic"><use href="#i-alert"/></svg>
+        <p id="notice-text"></p>
+        <button class="notice-close" id="notice-close" type="button" aria-label="Dispensar aviso">&times;</button>
+        <span class="notice-timer" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <aside class="rail" aria-label="Monitoramento">
+      <section class="panel panel-latency" aria-labelledby="h-latency">
+        <div class="panel-head">
+          <h2 id="h-latency">Latência</h2>
+          <span class="tag" id="lat-tag" data-zone="">—</span>
+        </div>
+        <div class="latency-hero">
+          <div class="latency-value"><span id="lat-main">—</span><small id="lat-unit"></small></div>
+          <p class="latency-caption" id="lat-caption">Aguardando medição</p>
+        </div>
+        <figure class="spark" id="spark" aria-label="Latência de vídeo fim a fim nos últimos 60 segundos">
+          <svg id="spark-svg" viewBox="0 0 280 84" preserveAspectRatio="none" aria-hidden="true">
+            <line class="spark-grid" x1="0" x2="280" y1="83.5" y2="83.5"/>
+            <line class="spark-target" id="spark-target" x1="0" x2="280" y1="34" y2="34"/>
+            <path class="spark-area" id="spark-area" d=""/>
+            <path class="spark-line" id="spark-line" d=""/>
+            <line class="spark-cross" id="spark-cross" x1="0" x2="0" y1="0" y2="84"/>
+          </svg>
+          <span class="spark-dot" id="spark-dot"></span>
+          <span class="spark-tip" id="spark-tip"></span>
+          <figcaption class="spark-scale"><span>−60 s</span><span class="spark-target-label" id="spark-target-label">meta 300 ms</span><span>agora</span></figcaption>
+        </figure>
+        <dl class="kv">
+          <div><dt title="Tempo de ida e volta medido pelo WebRTC (verificações ICE/STUN) entre este computador e o robô">Rede, ida e volta</dt><dd id="m-rtt">—</dd></div>
+          <div><dt title="Atraso médio que o navegador mantém no buffer antes de exibir o vídeo">Buffer de vídeo</dt><dd id="m-vbuf">—</dd></div>
+          <div><dt title="Atraso médio do buffer de áudio do navegador">Buffer de áudio</dt><dd id="m-abuf">—</dd></div>
+          <div><dt title="Variação no tempo de chegada dos pacotes de áudio">Jitter do áudio</dt><dd id="m-jitter">—</dd></div>
+          <div><dt title="Tempo de ida e volta das mensagens de controle (WebSocket)">Sinalização</dt><dd id="m-ws">—</dd></div>
+        </dl>
+        <p class="footnote">Meta experimental do projeto: menos de 300 ms fim a fim em rede local. Valor a ser confirmado por medição.</p>
+      </section>
+
+      <section class="panel" aria-labelledby="h-loss">
+        <div class="panel-head"><h2 id="h-loss">Perda de pacotes</h2><span class="panel-sub">últimos 5 s</span></div>
+        <dl class="kv">
+          <div><dt>Vídeo do robô</dt><dd id="m-vloss">—</dd></div>
+          <div><dt>Áudio do robô</dt><dd id="m-aloss">—</dd></div>
+          <div><dt title="Informado pelo robô a partir do áudio que ele recebe">Sua voz no robô</dt><dd id="m-oloss">—</dd></div>
+        </dl>
+      </section>
+
+      <section class="panel" aria-labelledby="h-conn">
+        <div class="panel-head"><h2 id="h-conn">Conexão</h2></div>
+        <dl class="kv kv-state">
+          <div><dt>Canal de controle</dt><dd id="s-signal"><span class="dot"></span><span>—</span></dd></div>
+          <div><dt>Mídia (WebRTC)</dt><dd id="s-media"><span class="dot"></span><span>—</span></dd></div>
+          <div><dt>Sessão</dt><dd id="s-session"><span class="dot"></span><span>—</span></dd></div>
+        </dl>
+      </section>
+
+      <section class="panel" aria-labelledby="h-dev">
+        <div class="panel-head"><h2 id="h-dev">Dispositivos do robô</h2></div>
+        <ul class="devices">
+          <li id="d-camera"><span class="dev-icon"><svg class="ic"><use href="#i-video"/></svg></span><span class="dev-name">Webcam</span><span class="dev-state">—</span></li>
+          <li id="d-microphone"><span class="dev-icon"><svg class="ic"><use href="#i-mic"/></svg></span><span class="dev-name">Microfone</span><span class="dev-state">—</span></li>
+          <li id="d-speaker"><span class="dev-icon"><svg class="ic"><use href="#i-speaker"/></svg></span><span class="dev-name">Alto-falante</span><span class="dev-state">—</span></li>
+        </ul>
+      </section>
+    </aside>
+  </main>
+
+  <div class="auth-layer" id="auth-layer" hidden>
+    <form class="auth-card" id="login-form" novalidate>
+      <div class="auth-brand">
+        <span class="brand-mark lg" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><rect x="7" y="10" width="18" height="13" rx="3.5"/><path d="M16 10V6.5"/><circle class="brand-eye" cx="12.5" cy="16.5" r="1.6"/><circle class="brand-eye" cx="19.5" cy="16.5" r="1.6"/></svg>
+        </span>
+      </div>
+      <h1>Acesso do operador</h1>
+      <p class="auth-lead">Entre com as credenciais configuradas no computador do robô.</p>
+      <label for="login-user">Usuário</label>
+      <div class="field">
+        <svg class="ic"><use href="#i-user"/></svg>
+        <input id="login-user" name="username" autocomplete="username" required maxlength="128" spellcheck="false" placeholder="operador">
+      </div>
+      <label for="login-pass">Senha</label>
+      <div class="field">
+        <svg class="ic"><use href="#i-lock"/></svg>
+        <input id="login-pass" name="password" type="password" autocomplete="current-password" required maxlength="256" placeholder="••••••••">
+        <button class="field-btn" id="btn-show-pass" type="button" aria-label="Mostrar senha" aria-pressed="false" title="Mostrar senha">
+          <svg class="ic"><use href="#i-eye"/></svg>
+        </button>
+      </div>
+      <p class="auth-caps" id="login-caps" hidden>Caps Lock está ativado.</p>
+      <p class="auth-error" id="login-error" role="alert" hidden></p>
+      <button class="btn btn-primary btn-block" id="login-submit" type="submit">
+        <span class="spinner sm" aria-hidden="true"></span><span class="btn-label">Entrar</span>
+      </button>
+      <p class="auth-foot"><svg class="ic"><use href="#i-lock"/></svg>Conexão local com o robô</p>
+    </form>
+  </div>
+
+  <dialog class="confirm" id="confirm-stop" aria-labelledby="confirm-title">
+    <form method="dialog">
+      <span class="confirm-icon"><svg class="ic"><use href="#i-stop"/></svg></span>
+      <h2 id="confirm-title">Encerrar a sessão?</h2>
+      <p>O vídeo e o áudio serão interrompidos e a webcam, o microfone e o alto-falante do robô serão liberados.</p>
+      <div class="confirm-actions">
+        <button class="btn btn-ghost" value="cancel" type="submit" autofocus>Continuar operando</button>
+        <button class="btn btn-danger" value="stop" type="submit">Encerrar sessão</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="confirm shortcuts" id="dlg-shortcuts" aria-labelledby="shortcuts-title">
+    <form method="dialog">
+      <h2 id="shortcuts-title">Atalhos de teclado</h2>
+      <ul class="keys">
+        <li><kbd>M</kbd><span>Ligar ou desligar seu microfone</span></li>
+        <li><kbd>F</kbd><span>Vídeo em tela cheia</span></li>
+        <li><kbd>P</kbd><span>Salvar o quadro atual como imagem</span></li>
+        <li><kbd>T</kbd><span>Alternar tema claro/escuro</span></li>
+        <li><kbd>?</kbd><span>Mostrar esta lista</span></li>
+      </ul>
+      <div class="confirm-actions">
+        <button class="btn btn-ghost" value="close" type="submit" autofocus>Fechar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="/static/js/app.js"></script>
+</body>
+</html>
